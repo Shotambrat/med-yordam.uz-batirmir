@@ -7,11 +7,19 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        modalBlue: "rgba(20, 86, 211, 0.69)",
+        buttonColor: "#306DDE",
+        inputBg: "rgba(217, 217, 217, 0.13)",
+        aboutBgStart: "#81B1FE",
+        aboutBgEnd: "#1052D1"
       },
+      height: {
+        'screen-minus-60': 'calc(100vh - 60px)' // Создает новый класс `h-screen-minus-60`
+      },
+      scale: {
+        '-1': '-1',  // Добавляет возможность использовать `scale-x-[-1]` и `scale-y-[-1]`
+      }
     },
   },
   plugins: [],
