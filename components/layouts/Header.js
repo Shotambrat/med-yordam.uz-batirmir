@@ -3,8 +3,8 @@ import Link from "next/link"
 
 function Header() {
   return (
-    <div className='h-[60px] hidden md:flex justify-center items-center bg-white'>
-      <div className='w-[1200px] max-w-[1200px] flex justify-between items-center'>
+    <div className=' relative h-[60px] hidden md:flex justify-center items-center bg-white z-10'>
+      <div className='w-[1100px] max-w-[1100px] flex justify-between items-center'>
         <div className="flex w-[235px] justify-between items-center">
           <div className="flex justify-between items-center">
             <div className="mr-2">
