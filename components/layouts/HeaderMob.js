@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import Modal from "@/components/templates/modals/Modal";
 
-function Header() {
+function HeaderMob() {
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
   return (
-  <div className="fixed md:hidden bottom-0 left-0 h-[60px] w-full flex justify-center items-center p-4 z-10 bg-white">
+  <div className="fixed md:hidden bottom-0 left-0 h-[60px] w-full flex justify-center items-center p-4 z-[9999] bg-white">
+    {modalOpen && <Modal closeModal={closeModal} />}
     <div className="w-full h-full flex justify-between items-center">
         <button className="h-[45px] w-[50px] bg-gray-100 flex justify-center items-center rounded-md">
             <Image 
@@ -13,7 +20,7 @@ function Header() {
                 alt="phone Icon"
             />
         </button>
-        <button className="h-[45px] w-[180px] bg-blue-700 rounded-md flex justify-center items-center">
+        <button onClick={openModal} className="h-[45px] w-[180px] bg-blue-700 rounded-md flex justify-center items-center">
             <h2 className="text-sm font-semibold text-white">
                 Записаться на прием
             </h2>
@@ -31,4 +38,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderMob;

@@ -8,11 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        modalBlue: "rgba(20, 86, 211, 0.69)",
+        modalBlue: "rgba(20, 86, 211, 1)",
         buttonColor: "#306DDE",
         inputBg: "rgba(217, 217, 217, 0.13)",
         aboutBgStart: "#81B1FE",
-        aboutBgEnd: "#1052D1"
+        aboutBgEnd: "#1052D1",
+        showButton: "#97B6EC",
+        contactsBg: "#EFF2F7"
       },
       height: {
         'screen-minus-60': 'calc(100vh - 60px)' // Создает новый класс `h-screen-minus-60`

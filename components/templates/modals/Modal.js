@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-export default function SuccessModal() {
+export default function Modal({ closeModal }) {
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-modalBlue">
+    <div className={`fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-modalBlue modal-enter z-[9999]`}>
 
-      <div className="absolute right-8 top-12 md:cursor-pointer">
+      <div className="absolute right-8 top-12 md:cursor-pointer" onClick={closeModal}>
         <Image
           src="/img/closeIcon.svg"
           width={40}
@@ -39,12 +39,12 @@ export default function SuccessModal() {
                 </h4>
             </div>
             <div className="flex flex-col w-full mb-10">
-                <input  placeholder="Ваше имя" className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-300 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"/>
-                <input  placeholder="+998" className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-300 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"/>
-                <textarea placeholder="Жалобы" className="placeholder-white md:h-24 md:text-xl text-white mb-4 border-2 border-slate-300 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"/>
+                <input  placeholder="Ваше имя" className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-400 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"/>
+                <input  placeholder="+998" className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-400 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"/>
+                <textarea placeholder="Жалобы" className="placeholder-white md:h-24 md:text-xl text-white mb-4 border-2 border-slate-400 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"/>
             </div>
             <div className="w-full flex justify-center">
-                <button type="submit" className="bg-white w-full md:h-14 md:text-lg h-10 rounded-lg text-xs font-semibold text-buttonColor uppercase md:max-w-[400px]">
+                <button type="submit" className="bg-white w-full md:h-14 md:text-lg h-10 rounded-lg text-xs font-semibold text-buttonColor uppercase md:max-w-[400px] hover:bg-gradient-to-r hover:from-aboutBgEnd hover:to-aboutBgStart transition-all hover:text-white border-2 border-white">
                     Отправить
                 </button>
             </div>

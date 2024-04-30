@@ -1,9 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
+import Modal from "@/components/templates/modals/Modal";
+import { useState } from "react";
 
 function Header() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
   return (
     <div className=' relative h-[60px] hidden md:flex justify-center items-center bg-white z-10'>
+      {modalOpen && <Modal closeModal={closeModal} />}
       <div className='w-[1100px] max-w-[1100px] flex justify-between items-center'>
         <div className="flex w-[235px] justify-between items-center">
           <div className="flex justify-between items-center">
@@ -40,7 +47,7 @@ function Header() {
             </a>
           </div>
           <div>
-            <button className="h-8 bg-blue-800 text-white px-3 pb-1 rounded-md">
+            <button onClick={openModal} className="h-8 bg-blue-800 text-white px-3 pb-1 rounded-md">
               Записаться
             </button>
           </div>
