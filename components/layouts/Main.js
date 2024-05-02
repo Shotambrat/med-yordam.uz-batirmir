@@ -1,17 +1,93 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "@/components/templates/modals/Modal";
-import Card from "@/components/templates/Card"
+import Card from "@/components/templates/Card";
+import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 
 const Main = () => {
+  // console.log(activeId)
+
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  const menuItems = [
+    {
+      id: "education",
+      title: "Образование"
+    },
+    {
+      id: "experience",
+      title: "Опыт работы"
+    },
+    {
+      id: "medal",
+      title: "Достижения"
+    },
+    {
+      id: "location",
+      title: "Адрес приёма"
+    },
+    {
+      id: "uslugi",
+      title: "Услуги"
+    },
+    {
+      id: "contacts",
+      title: "Контакты"
+    }
+  ];
+
+  useIntersectionObserver(menuItems);
+
+  const cerviseData = [
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+    {
+      title: "Консультация",
+      price: "200000сум",
+    },
+  ];
+
   const cardData = [
     {
       title: "Образование",
+      id: "education",
       imageSrc: "/img/bakalavr.png",
       items: [
         "Тема диссертации. - Возможности эндоскопических вмешательств на хирургических этапахлечения портальная гипертензия (2009)",
@@ -25,42 +101,63 @@ const Main = () => {
       ],
     },
     {
-      title: "Места приёма",
-      imageSrc: "/img/chel-clock.png",
-      items: [
-        `Medion Innovation <br/> ул. Абдуллы Кадыри, 39 <br/> Ориентир: "FLORIYA" КАФЕ - ГАНГА, "ROSSINI" РЕСТОРАН <br/> пн, ср, пт, вс 14:00 - 17:00 <br/>сб 10:00 - 16:00 <br/>приём 350 000 сум`,
-        "- Immunogen test <br/>ул. Я. Гулямова, 74 <br/>Ориентир: посольство Франции, Miran International гостиница <br/>пн, ср, пт, сб, вс <br/>вт, чт 09:00-13:00 <br/>приём: 200 000 сум",
-        'Vega Med пр-т Мирзо Улугбека, 5 <br/>Ориентир: бывш. з-д "Ташсельмаш", дворец музыки <br/>пн, ср, пт 09:00-15:00 <br/>приём: 300 000 сум'
-        // Другие элементы
-      ],
-    },
-    {
-      title: "Достижения",
-      imageSrc: "/img/medal.png",
-      items: [
-        `Врач высшей категории со стажем 26 лет`,
-        "Кандидат медицинских наук",
-        'Опыт работы в Саудовской Аравии, Кувейте',
-        "Член Российского общества гастроинтестинальной эндоскопии",
-        "Член Медицинской ассоциации Кувейта"
-        // Другие элементы
-      ],
-    },
-    {
       title: "Опыт работы",
+      id: "experience",
       imageSrc: "/img/loc-point.png",
       items: [
         `С декабря 2020 г. по декабрь 2021 г. - консультант-гастроэнтеролог, больница им. Короля Фахда,
         <br/>Медина, Саудовская Аравия,`,
         "С декабря 2017 г. по ноябрь 2020 г., гастроэнтеролог-эндоскопист, больница «AKFA Medline», Ташкент.",
-        'С марта 2017 г. по ноябрь 2017 г. Госпиталь «Доктор Д» - врач-гастроэнтеролог-эндоскопист Ташкент.',
+        "С марта 2017 г. по ноябрь 2017 г. Госпиталь «Доктор Д» - врач-гастроэнтеролог-эндоскопист Ташкент.",
         "Апрель 2015 г. - январь 2017 г. - специалист отделения гастроэнтерологии и эндоскопии, больница Аль-Адан, Кувейт.",
-        "С 1997 г. по апрель 2015 г. Врач-эндоскопист отделения эндоскопии желудочно-кишечного тракта Республиканского специализированного центра хирургии имени профессора В. Вахидова, Ташкент, Узбекистан"
+        "С 1997 г. по апрель 2015 г. Врач-эндоскопист отделения эндоскопии желудочно-кишечного тракта Республиканского специализированного центра хирургии имени профессора В. Вахидова, Ташкент, Узбекистан",
         // Другие элементы
       ],
     },
-    // Другие карточки
+    {
+      title: "Достижения",
+      id: "medal",
+      imageSrc: "/img/medal.png",
+      items: [
+        `Врач высшей категории со стажем 26 лет`,
+        "Кандидат медицинских наук",
+        "Опыт работы в Саудовской Аравии, Кувейте",
+        "Член Российского общества гастроинтестинальной эндоскопии",
+        "Член Медицинской ассоциации Кувейта",
+        // Другие элементы
+      ],
+    },
+    {
+      title: "Места приёма",
+      id: "location",
+      imageSrc: "/img/chel-clock.png",
+      items: [
+        `Medion Innovation <br/> ул. Абдуллы Кадыри, 39 <br/> Ориентир: "FLORIYA" КАФЕ - ГАНГА, "ROSSINI" РЕСТОРАН <br/> пн, ср, пт, вс 14:00 - 17:00 <br/>сб 10:00 - 16:00 <br/>приём 350 000 сум`,
+        "- Immunogen test <br/>ул. Я. Гулямова, 74 <br/>Ориентир: посольство Франции, Miran International гостиница <br/>пн, ср, пт, сб, вс <br/>вт, чт 09:00-13:00 <br/>приём: 200 000 сум",
+        'Vega Med пр-т Мирзо Улугбека, 5 <br/>Ориентир: бывш. з-д "Ташсельмаш", дворец музыки <br/>пн, ср, пт 09:00-15:00 <br/>приём: 300 000 сум',
+        // Другие элементы
+      ],
+    },
   ];
+
+  // const handleScroll = () => {
+  //   const sections = document.querySelectorAll(".section");
+  //   let activeSection = "education"; // Default section
+
+  //   sections.forEach((section) => {
+  //     const rect = section.getBoundingClientRect();
+  //     console.log(section.id, "rect", rect);
+  //     if (rect.top <= 0 && rect.bottom >= 100) {
+  //       activeSection = section.id;
+  //     }
+  //   });
+
+  //   setActiveId(activeSection);
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  // }, []);
   return (
     <main>
       {modalOpen && <Modal closeModal={closeModal} />}
@@ -152,44 +249,90 @@ const Main = () => {
               />
             </div>
           </div>
+          {/* bg-blue-700 text-white */}
           <div className="flex justify-between w-full h-auto mt-8">
             <div className="w-1/4 h-auto hidden md:block">
-              <ul className="list-none flex flex-col w-full h-[350px] justify-between sticky top-0 mb-5">
-                <li className="h-10 px-2 w-full flex items-center rounded-md bg-blue-700">
-                  <h2 className="text-center text-white w-full">Образование</h2>
-                </li>
-                <li className="h-10 px-2 w-full flex items-center rounded-md">
-                  <h2 className="text-center w-full">Опыт работы</h2>
-                </li>
-                <li className="h-10 px-2 w-full flex items-center rounded-md">
-                  <h2 className="text-center w-full">Достижения</h2>
-                </li>
-                <li className="h-10 px-2 w-full flex items-center rounded-md">
-                  <h2 className="text-center w-full">Адрес приёма</h2>
-                </li>
-                <li className="h-10 px-2 w-full flex items-center rounded-md">
-                  <h2 className="text-center w-full">Услуги</h2>
-                </li>
-                <li className="h-10 px-2 w-full flex items-center rounded-md">
-                  <h2 className="text-center w-full">Контакты</h2>
-                </li>
+              <ul className="list-none flex flex-col w-full h-[300px] justify-between sticky top-0 mb-5">
+                {menuItems.map((item) => (
+                  <li
+                    key={item.id}
+                    data-id={item.id} // New data attribute
+                    className={`h-10 px-2 w-full flex items-center rounded-md bg-white text-black cursor-pointer`}
+                    onClick={() =>
+                      document.getElementById(item.id).scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      })
+                    }
+                  >
+                    <h2 className="text-center w-full">
+                      {item.title}
+                    </h2>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="md:w-3/4 w-full md:ml-12 h-auto ">
+            <div className="md:w-3/4 w-full md:ml-12 h-auto">
               {cardData.map((card, index) => (
                 <Card
+                  id={card.id}
                   key={index}
                   title={card.title}
                   items={card.items}
                   imageSrc={card.imageSrc}
+                  className="section"
                 />
               ))}
               <div
                 id="uslugi"
-                className="w-full h-[500px] bg-gradient-to-r rounded-xl mb-8 from-aboutBgStart to-aboutBgEnd p-4"
+                className="w-full h-[500px] bg-gradient-to-r rounded-xl mb-8 from-aboutBgStart to-aboutBgEnd px-10 py-6 text-white"
               >
-                <h2>Услуги</h2>
+                <h2 className="md:text-4xl text-2xl font-semibold mb-6">
+                  Услуги
+                </h2>
+                <div className="w-full h-auto flex flex-col ">
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between text-2xl mb-3">
+                      <h3>Консультация</h3>
+                      <h3>цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between text-2xl mb-3">
+                      <h3>Консультация</h3>
+                      <h3>цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between text-2xl mb-3">
+                      <h3>Консультация</h3>
+                      <h3>цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between text-2xl mb-3">
+                      <h3>Консультация</h3>
+                      <h3>цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between text-2xl mb-3">
+                      <h3>Консультация</h3>
+                      <h3>цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                </div>
+                <div className="w-full flex justify-end">
+                  <button className="h-10 w-[160px] bg-gray-200 text-blue-600 rounded-lg flex justify-center items-center font-semibold">
+                    <p>Показать всё</p>
+                  </button>
+                </div>
               </div>
               <div
                 id="contacts"
@@ -210,8 +353,11 @@ const Main = () => {
                   </h2>
                 </div>
                 <div className="flex flex-col justify-center items-center h-full md:mr-0">
-                  <div className="relative h-[35px] w-[160px] md:w-[200px] bg-blue-700 rounded-md text-white flex justify-around items-center mb-4">
-                    <div className="relative top-0 left-0 h-full w-auto flex justify-center items-center">
+                  <a
+                    href="tel:+998998388078"
+                    className="relative h-[35px] w-[160px] md:w-[200px] bg-blue-700 rounded-md text-white flex justify-around items-center mb-4"
+                  >
+                    <div className="relative top-0 left-0 h-full w-1/4 flex justify-center items-center">
                       <Image
                         src="/img/phone-icon.svg"
                         height={25}
@@ -219,10 +365,14 @@ const Main = () => {
                         alt="Phone-icon"
                       />
                     </div>
-                    <h3>+998998388078</h3>
-                  </div>
-                  <div className="relative h-[35px] w-[160px] md:w-[200px] bg-blue-700 rounded-md text-white flex justify-around items-center">
-                    <div className="relative top-0 left-0 h-full w-auto flex justify-center items-center">
+                    <h3 className="w-3/4 flex justify-center">+998998388078</h3>
+                  </a>
+                  <a
+                    href="https://t.me/gastroendouz"
+                    target="_blank"
+                    className="relative h-[35px] w-[160px] md:w-[200px] bg-blue-700 rounded-md text-white flex justify-between items-center"
+                  >
+                    <div className="relative top-0 left-0 h-full w-1/4 flex justify-center items-center">
                       <Image
                         src="/img/telegram-icon-contacts.svg"
                         height={25}
@@ -230,8 +380,8 @@ const Main = () => {
                         alt="Phone-icon"
                       />
                     </div>
-                    <h3>+998998388078</h3>
-                  </div>
+                    <h3 className="w-3/4 flex justify-center">Telegram</h3>
+                  </a>
                 </div>
               </div>
             </div>
@@ -285,7 +435,7 @@ const Main = () => {
             <div className="w-full flex justify-center">
               <button
                 type="submit"
-                className="bg-white w-full md:h-14 md:text-lg h-10 rounded-lg text-xs font-semibold text-buttonColor uppercase md:max-w-[400px]"
+                className="bg-white w-full md:h-14 md:text-lg h-10 rounded-lg text-xs font-semibold text-buttonColor uppercase md:max-w-[400px] hover:bg-gradient-to-r hover:from-aboutBgEnd hover:to-aboutBgStart transition-all hover:text-white border-2 border-white"
               >
                 Отправить
               </button>
@@ -312,12 +462,16 @@ const Main = () => {
                   className="h-full w-full"
                 />
               </div>
-              <div className="w-3/5 font-semibold">
+              <a href="tel:+998998388078" className="w-3/5 font-semibold">
                 <h3>+998 99 838 80 78</h3>
-              </div>
+              </a>
             </div>
             <div className="w-full h-auto flex justify-between items-center md:mb-0 mb-4">
-              <div className="w-[50px] h-[50px]">
+              <a
+                href="https://www.instagram.com/batirmir"
+                target="_blank"
+                className="w-[50px] h-[50px]"
+              >
                 <Image
                   src="/img/footer-inst-icon.svg"
                   height={1}
@@ -325,8 +479,12 @@ const Main = () => {
                   alt="Inst Icon"
                   className="h-full w-full"
                 />
-              </div>
-              <div className="w-[40px] h-[40px]">
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=1515585354"
+                target="_blank"
+                className="w-[40px] h-[40px]"
+              >
                 <Image
                   src="/img/footer-facebook-icon.svg"
                   height={1}
@@ -334,8 +492,12 @@ const Main = () => {
                   alt="Facebook Icon"
                   className="h-full w-full"
                 />
-              </div>
-              <div className="w-[40px] h-[40px]">
+              </a>
+              <a
+                href="https://t.me/gastroendouz"
+                target="_blank"
+                className="w-[40px] h-[40px] telegram-icon"
+              >
                 <Image
                   src="/img/footer-tg-icon.svg"
                   height={1}
@@ -343,8 +505,8 @@ const Main = () => {
                   alt="Telegram Icon"
                   className="h-full w-full"
                 />
-              </div>
-              <div className="w-[50px] h-[50px]">
+              </a>
+              <a href="www.youtube.com" className="w-[50px] h-[50px]">
                 <Image
                   src="/img/footer-utube-icon.svg"
                   height={1}
@@ -352,10 +514,14 @@ const Main = () => {
                   alt="Youtube Icon"
                   className="h-full w-full"
                 />
-              </div>
+              </a>
             </div>
           </div>
-          <div className="h-[70px] w-[200px] rounded-lg bg-gray-200 bg-opacity-65 flex justify-center items-center">
+          <a
+            href="https://result-me.uz/"
+            target="_blank"
+            className="h-[70px] w-[200px] rounded-lg bg-gray-200 bg-opacity-65 flex justify-center items-center hover:bg-gray-100"
+          >
             <p className="relative -top-1 text-xl mr-2 text-blue-700">by</p>
             <div className="">
               <Image
@@ -366,7 +532,7 @@ const Main = () => {
                 className="h-full w-auto"
               />
             </div>
-          </div>
+          </a>
         </div>
       </footer>
     </main>

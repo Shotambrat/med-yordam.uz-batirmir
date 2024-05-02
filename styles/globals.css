@@ -46,3 +46,16 @@ body {
 .modal-enter {
   animation: bounceInLeft 0.75s;
 }
+
+a.telegram-icon:hover .icon-fill {
+  fill: #fff;
+}
+
+a.telegram-icon:hover .icon-stroke {
+  stroke: #fff;
+}
+
+.active {
+  background-color: #1d4ed8; /* Change to your preferred color */
+  color: white;
+}

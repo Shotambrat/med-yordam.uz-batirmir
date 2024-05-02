@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-const Card = ({ title, items, imageSrc }) => {
+const Card = ({ id, title, items, imageSrc }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <div className={`relative h-auto w-full rounded-lg bg-gray-300 flex p-2 md:p-4 mb-10 ${isOpen ? 'h-auto' : 'h-[160px] md:h-[230px]'}`}>
+    <div id={id} className={`relative h-auto w-full rounded-lg bg-gray-300 flex p-2 md:p-4 mb-10 ${isOpen ? 'h-auto' : 'h-[160px] md:h-[230px]'}`}>
       <div className="h-full w-1/6 flex items-center justify-center">
         <Image
           src={imageSrc}
@@ -22,7 +22,7 @@ const Card = ({ title, items, imageSrc }) => {
           <h2 className="text-2xl font-bold my-2 md:my-4">
             {title}
           </h2>
-          <ul style={{ paddingLeft: "20px" }} className="list-disc">
+          <ul style={{ paddingLeft: "20px" }} className={`list-disc h-auto ${isOpen == true? 'h-auto mb-10 overflow-y-auto': ''} `}>
             {items.map((item, index) => (
               <li key={index} className="text-sm md:text-lg mb-4">
                 {item}
