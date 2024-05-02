@@ -22,20 +22,22 @@ const Card = ({ id, title, items, imageSrc }) => {
           <h2 className="text-2xl font-bold my-2 md:my-4">
             {title}
           </h2>
-          <ul style={{ paddingLeft: "20px" }} className={`list-disc h-auto ${isOpen == true? 'h-auto mb-10 overflow-y-auto': ''} `}>
+          <ul style={{ paddingLeft: "20px" }} className={`list-disc ${isOpen ? 'h-auto md:mb-8' : 'max-h-[0px] md:max-h-[80px] overflow-y-hidden md:mb-0 mb-2'}`}>
             {items.map((item, index) => (
-              <li key={index} className="text-sm md:text-lg mb-4">
-                {item}
+              <li key={index} className="text-sm md:text-lg mb-4 whitespace-pre-line">
+                {item.replace(/<br\s*\/?>/gi, '\n')}
               </li>
             ))}
           </ul>
         </div>
+        <div className='w-full flex justify-end'>
         <button
           onClick={toggleOpen}
-          className="absolute right-4 bottom-4 bg-showButton h-8 border-none text-white px-4 rounded-md z-10"
+          className="md:absolute relative  md:right-4 md:bottom-4 bg-showButton h-8 border-none text-white px-4 rounded-md z-10"
         >
           {isOpen ? 'Скрыть' : 'Показать всё'}
         </button>
+        </div>
       </div>
     </div>
   );

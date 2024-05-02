@@ -12,77 +12,41 @@ const Main = () => {
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
+  const handleScrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const menuItems = [
     {
       id: "education",
-      title: "Образование"
+      title: "Образование",
     },
     {
       id: "experience",
-      title: "Опыт работы"
+      title: "Опыт работы",
     },
     {
       id: "medal",
-      title: "Достижения"
+      title: "Достижения",
     },
     {
       id: "location",
-      title: "Адрес приёма"
+      title: "Адрес приёма",
     },
     {
       id: "uslugi",
-      title: "Услуги"
+      title: "Услуги",
     },
     {
       id: "contacts",
-      title: "Контакты"
-    }
+      title: "Контакты",
+    },
   ];
 
   useIntersectionObserver(menuItems);
-
-  const cerviseData = [
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-    {
-      title: "Консультация",
-      price: "200000сум",
-    },
-  ];
 
   const cardData = [
     {
@@ -252,7 +216,7 @@ const Main = () => {
           {/* bg-blue-700 text-white */}
           <div className="flex justify-between w-full h-auto mt-8">
             <div className="w-1/4 h-auto hidden md:block">
-              <ul className="list-none flex flex-col w-full h-[300px] justify-between sticky top-0 mb-5">
+              <ul className="list-none flex flex-col w-full h-[300px] justify-between sticky top-0 mb-5 z-10">
                 {menuItems.map((item) => (
                   <li
                     key={item.id}
@@ -265,9 +229,7 @@ const Main = () => {
                       })
                     }
                   >
-                    <h2 className="text-center w-full">
-                      {item.title}
-                    </h2>
+                    <h2 className="text-center w-full">{item.title}</h2>
                   </li>
                 ))}
               </ul>
@@ -286,42 +248,42 @@ const Main = () => {
               ))}
               <div
                 id="uslugi"
-                className="w-full h-[500px] bg-gradient-to-r rounded-xl mb-8 from-aboutBgStart to-aboutBgEnd px-10 py-6 text-white"
+                className="w-full md:h-[500px] h-auto bg-gradient-to-r rounded-xl mb-8 from-aboutBgStart to-aboutBgEnd px-10 py-6 text-white"
               >
                 <h2 className="md:text-4xl text-2xl font-semibold mb-6">
                   Услуги
                 </h2>
                 <div className="w-full h-auto flex flex-col ">
                   <div className="w-full mb-6">
-                    <div className="w-full flex justify-between text-2xl mb-3">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
                       <h3>Консультация</h3>
                       <h3>цена</h3>
                     </div>
                     <hr className="border-2" />
                   </div>
                   <div className="w-full mb-6">
-                    <div className="w-full flex justify-between text-2xl mb-3">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
                       <h3>Консультация</h3>
                       <h3>цена</h3>
                     </div>
                     <hr className="border-2" />
                   </div>
                   <div className="w-full mb-6">
-                    <div className="w-full flex justify-between text-2xl mb-3">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
                       <h3>Консультация</h3>
                       <h3>цена</h3>
                     </div>
                     <hr className="border-2" />
                   </div>
                   <div className="w-full mb-6">
-                    <div className="w-full flex justify-between text-2xl mb-3">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
                       <h3>Консультация</h3>
                       <h3>цена</h3>
                     </div>
                     <hr className="border-2" />
                   </div>
                   <div className="w-full mb-6">
-                    <div className="w-full flex justify-between text-2xl mb-3">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
                       <h3>Консультация</h3>
                       <h3>цена</h3>
                     </div>
@@ -329,7 +291,7 @@ const Main = () => {
                   </div>
                 </div>
                 <div className="w-full flex justify-end">
-                  <button className="h-10 w-[160px] bg-gray-200 text-blue-600 rounded-lg flex justify-center items-center font-semibold">
+                  <button className="h-8 md:h-10 w-[120px] md:w-[160px] bg-gray-200 text-blue-600 rounded-lg flex justify-center items-center font-semibold">
                     <p>Показать всё</p>
                   </button>
                 </div>
@@ -447,9 +409,14 @@ const Main = () => {
       <footer className="w-full md:h-[200px] h-[300px] bg-gradient-to-r from-aboutBgStart to-aboutBgEnd flex justify-center items-center py-10">
         <div className="w-[1100px] max-w-[1100px] flex justify-start md:justify-around items-center h-full flex-col md:flex-row">
           <div className="md:flex flex-col h-full justify-between text-white hidden">
-            <h3>Услуги и цены</h3>
-            <h3>Специализации</h3>
-            <h3>Блог</h3>
+            <h3
+              onClick={() => handleScrollTo("uslugi")}
+              className="cursor-pointer"
+            >
+              Услуги и цены
+            </h3>
+            <h3 className="cursor-pointer">Специализации</h3>
+            <h3 className="cursor-pointer">Блог</h3>
           </div>
           <div className="w-[250px] h-auto md:h-full flex flex-col justify-start md:justify-between">
             <div className="h-[40px] w-full bg-white text-blue-600 flex items-center justify-center rounded-lg md:mb-0 mb-4">
@@ -506,7 +473,11 @@ const Main = () => {
                   className="h-full w-full"
                 />
               </a>
-              <a href="www.youtube.com" className="w-[50px] h-[50px]">
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                className="w-[50px] h-[50px]"
+              >
                 <Image
                   src="/img/footer-utube-icon.svg"
                   height={1}

@@ -8,6 +8,13 @@ function Header() {
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+
+  const handleScrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <div className=' relative h-[60px] hidden md:flex justify-center items-center bg-white z-10'>
       {modalOpen && <Modal closeModal={closeModal} />}
@@ -25,20 +32,10 @@ function Header() {
             <p className="text-sm font-semibold mr-2">
               Ташкент
             </p>
-            <div className="w-[20px] h-[25px] flex items-end">
-              <Image
-                src="/img/angle-down.svg"
-                width={20}
-                height={20}
-                alt="downIcon"
-              />
-            </div>
           </div>
-          <Link href="/">
-            <p className="text-sm">
+          <button onClick={() => handleScrollTo('uslugi')} className="text-sm">
               Услуги и цены
-            </p>
-          </Link>
+          </button>
         </div>
         <div className="h-full w-[450px] flex justify-between items-center">
           <div>
