@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default async function handler(req, res) {
   const tgBotToken = '7081587984:AAFr_1hQcqvk_7kRNWxqAaX0mMfb66bKHqg';
-  const chatId = '-4275599909';
+  const chatId = '-1002135947568';
 
   const { name, phone, complaints } = req.body;
 
