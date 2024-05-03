@@ -17,7 +17,8 @@ module.exports = {
         contactsBg: "#EFF2F7"
       },
       height: {
-        'screen-minus-60': 'calc(100vh - 60px)' // Создает новый класс `h-screen-minus-60`
+        'screen-minus-60': 'calc(100vh - 60px)', // Создает новый класс `h-screen-minus-60`
+        'screen-minus-350': 'calc(100vh - 350px)', //для карты
       },
       scale: {
         '-1': '-1',  // Добавляет возможность использовать `scale-x-[-1]` и `scale-y-[-1]`

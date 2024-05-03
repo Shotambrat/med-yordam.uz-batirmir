@@ -8,6 +8,9 @@ const Main = () => {
   // console.log(activeId)
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [service, setService] = useState(false);
+
+  const handleServices = () => setService(!service)
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
@@ -248,50 +251,141 @@ const Main = () => {
               ))}
               <div
                 id="uslugi"
-                className="w-full md:h-[500px] h-auto bg-gradient-to-r rounded-xl mb-8 from-aboutBgStart to-aboutBgEnd px-10 py-6 text-white"
+                className={`relative w-full ${service == false ? 'md:h-[500px] h-[390px]':'h-auto md:h-auto'} bg-gradient-to-r rounded-xl mb-8 from-aboutBgStart to-aboutBgEnd px-10 py-6 text-white`}
               >
                 <h2 className="md:text-4xl text-2xl font-semibold mb-6">
                   Услуги
                 </h2>
-                <div className="w-full h-auto flex flex-col ">
+                <div className={`w-full flex flex-col overflow-y-hidden mb-6 ${service == false ? 'h-[250px] md:h-[350px]':'h-auto md:h-auto'}`}>
                   <div className="w-full mb-6">
                     <div className="w-full flex justify-between md:text-2xl text-md mb-3">
-                      <h3>Консультация</h3>
-                      <h3>цена</h3>
+                      <h3>Консультация гастроэнтеролога</h3>
+                      <h3 className="ml-8 font-bold">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Гастродуоденоскопия (местная анестезия) без биопсии</h3>
+                      <h3 className="ml-8 font-bold">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Гастродуоденоскопия (под в/в седацией) без биопсии</h3>
+                      <h3 className="ml-8 font-bold">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Дуоденоскопия с осмотром большого дуоденального сосочка (под в/в седацией)</h3>
+                      <h3 className="ml-8 font-bold">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Биопсия простая (до 4 фрагментов включительно)</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Биопсия множественная (более 4 фрагментов)</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Установка назогастрального зонда</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Колоноскопия без биопсии (без анестезии)</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Колоноскопия без биопсии (под в/в седацией)</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Ректосигмоскопия</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Бронхоскопия</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Установка назоеюнального, назогастрального зонда</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Эндоскопическое удаление инородного тела из ЖКТ, трахеи и бронхов</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Эндоскопическое удаление полипов из ЖКТ 1 категории сложности</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Браш-цитология</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Смыв из бронхов</h3>
+                      <h3 className="ml-2">цена</h3>
+                    </div>
+                    <hr className="border-2" />
+                  </div>
+                  <div className="w-full mb-6">
+                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
+                      <h3>Гемостаз желудочно-кишечного тракта</h3>
+                      <h3 className="ml-2">цена</h3>
                     </div>
                     <hr className="border-2" />
                   </div>
                   <div className="w-full mb-6">
                     <div className="w-full flex justify-between md:text-2xl text-md mb-3">
                       <h3>Консультация</h3>
-                      <h3>цена</h3>
-                    </div>
-                    <hr className="border-2" />
-                  </div>
-                  <div className="w-full mb-6">
-                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
-                      <h3>Консультация</h3>
-                      <h3>цена</h3>
-                    </div>
-                    <hr className="border-2" />
-                  </div>
-                  <div className="w-full mb-6">
-                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
-                      <h3>Консультация</h3>
-                      <h3>цена</h3>
-                    </div>
-                    <hr className="border-2" />
-                  </div>
-                  <div className="w-full mb-6">
-                    <div className="w-full flex justify-between md:text-2xl text-md mb-3">
-                      <h3>Консультация</h3>
-                      <h3>цена</h3>
+                      <h3 className="ml-2">цена</h3>
                     </div>
                     <hr className="border-2" />
                   </div>
                 </div>
-                <div className="w-full flex justify-end">
-                  <button className="h-8 md:h-10 w-[120px] md:w-[160px] bg-gray-200 text-blue-600 rounded-lg flex justify-center items-center font-semibold">
+                <div className="absolute bottom-4 right-10 w-full flex justify-end">
+                  <button onClick={handleServices} className="h-8 md:h-10 w-[120px] md:w-[160px] bg-gray-200 text-blue-600 rounded-lg flex justify-center items-center font-semibold">
                     <p>Показать всё</p>
                   </button>
                 </div>
@@ -405,7 +499,59 @@ const Main = () => {
           </form>
         </div>
       </section>
-      <section id="map"></section>
+      <section id="map" className="w-full h-screen relative">
+        <div className="md:absolute relative h-[350px] w-[300px] bg-gradient-to-tr from-aboutBgStart to-aboutBgEnd top-0 left-0 md:top-[200px] md:left-[200px] rounded-xl mx-auto md:mx-0 py-4 px-4 z-10">
+          <div className="absolute right-0 top-2 h-[100px] w-[100px]">
+            <Image
+              src="/img/address-point.png"
+              width={100}
+              height={100}
+              alt="Address Point"
+            />
+          </div>
+          <div className="h-full w-full flex flex-col justify-between text-white">
+              <h2 className="text-[26px] font-semibold mt-2 ml-2">
+                Адрес приёма
+              </h2>
+
+              <div className="w-full flex flex-col">
+                <div className="flex flex-col w-full justify-between h-[70px]">
+                  <div className="flex items-center">
+                    <p className="mx-2 text-6xl font-bold opacity-50">1</p>
+                    <h4 className="w-[170px] text-sm">
+                      <span className="font-semibold">Адрес: </span>Medion Innovation ул. Абдуллы Кадыри, 39 
+                    </h4>
+                  </div>
+                  <hr className="border-2 opacity-50"/>
+                </div>
+              </div>
+              <div className="w-full flex flex-col">
+                <div className="flex flex-col w-full justify-between h-[70px]">
+                  <div className="flex items-center">
+                    <p className="mx-2 text-6xl font-bold opacity-50">2</p>
+                    <h4 className="w-[170px] text-sm">
+                      <span className="font-semibold">Адрес: </span> Immunogen test ул. Я. Гулямова, 74 
+                    </h4>
+                  </div>
+                  <hr className="border-2 opacity-50"/>
+                </div>
+              </div>
+              <div className="w-full flex flex-col">
+                <div className="flex flex-col w-full justify-between h-[70px]">
+                  <div className="flex items-center">
+                    <p className="mx-2 text-6xl font-bold opacity-50">3</p>
+                    <h4 className="w-[170px] text-sm">
+                      <span className="font-semibold">Адрес: </span>Vega Med пр-т Мирзо Улугбека, 5 
+                    </h4>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div className="w-full h-screen-minus-350 md:h-full relative top-0 left-0">
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A12f6e132d99e400ddc3ff95262d7eaf04d5e9175e86ab33bb6930dab08cb32fa&amp;source=constructor" className="w-full h-full" frameborder="0"></iframe>
+          </div>
+      </section>
       <footer className="w-full md:h-[200px] h-[300px] bg-gradient-to-r from-aboutBgStart to-aboutBgEnd flex justify-center items-center py-10">
         <div className="w-[1100px] max-w-[1100px] flex justify-start md:justify-around items-center h-full flex-col md:flex-row">
           <div className="md:flex flex-col h-full justify-between text-white hidden">

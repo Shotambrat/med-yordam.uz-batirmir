@@ -6,7 +6,7 @@ export default function SuccessModal() {
       style={{
         background: "linear-gradient(to left, #1758D4, #578EED)",
       }}
-      className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center"
+      className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center z-[9999]"
     >
       <div className="flex flex-col items-center">
         <p className="text-center w-3/4 text-2xl font-semibold text-white mb-8">
