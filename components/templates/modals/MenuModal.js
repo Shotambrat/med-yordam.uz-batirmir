@@ -21,20 +21,16 @@ const ModalMenu = ({ isOpen, toggleMenu }) => {
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="bg-white p-8 rounded-lg shadow-lg w-72 h-full relative">
-        <button
-          className="cursor-pointer absolute top-4 right-4 text-blue-500 text-2xl "
-          onClick={toggleMenu}
-        >
+      <div className="bg-white p-8 rounded-lg shadow-lg w-[250px] h-full relative">
           <Image
+          onClick={toggleMenu}
             src="/img/closeIcon.svg"
             width={40}
             height={40}
             alt="Close Icon"
-            className="z-10"
+            className="z-10 cursor-pointer absolute top-4 right-4"
           />
-        </button>
-        <ul className="flex flex-col items-start mt-10 space-y-4">
+        <ul className="flex flex-col items-end justify-between mt-10 space-y-4 text-2xl font-semibold h-[350px]">
           <li onClick={() => handleScrollToSection("education")}>
             Образование
           </li>
@@ -47,6 +43,7 @@ const ModalMenu = ({ isOpen, toggleMenu }) => {
           </li>
           <li onClick={() => handleScrollToSection("uslugi")}>Услуги</li>
           <li onClick={() => handleScrollToSection("contacts")}>Контакты</li>
+          
         </ul>
       </div>
     </div>
