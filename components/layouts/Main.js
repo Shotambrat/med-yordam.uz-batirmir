@@ -4,12 +4,14 @@ import Modal from "@/components/templates/modals/Modal";
 import Card from "@/components/templates/Card";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import toast, { Toaster } from 'react-hot-toast';
+import MenuModal from "@/components/templates/modals/MenuModal";
 
-const Main = () => {
+const Main = ({isMenuOpen, toggleMenu}) => {
   // console.log(activeId)
 
   const [modalOpen, setModalOpen] = useState(false);
   const [service, setService] = useState(false);
+
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -135,6 +137,7 @@ const Main = () => {
     <main>
             <Toaster />
       {modalOpen && <Modal closeModal={closeModal} />}
+      <MenuModal isOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <section className="relative h-screen-minus-60 md:h-screen-minus-60 p-2 w-full flex justify-center items-center bg-gradient-to-br from-aboutBgStart to-aboutBgEnd">
         <div className="absolute w-[300px] h-[300px] md:w-[800px] md:h-[800px] md:-top-16 md:-right-0 md:left-auto md:scale-x-[1] -left-8 top-[300px] scale-x-[-1] md:scal -z-5">
           <img

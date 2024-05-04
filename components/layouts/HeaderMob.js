@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Modal from "@/components/templates/modals/Modal";
 
-function HeaderMob() {
+function HeaderMob({ toggleMenu }) {
     const [modalOpen, setModalOpen] = useState(false);
 
     const openModal = () => setModalOpen(true);
@@ -27,7 +27,7 @@ function HeaderMob() {
                 Записаться на прием
             </h2>
         </button>
-        <button className="h-[45px] w-[50px] bg-gray-100 flex justify-center items-center rounded-md">
+        <button onClick={toggleMenu} className="h-[45px] w-[50px] bg-gray-100 flex justify-center items-center rounded-md">
             <Image 
                 src="/img/burger-menu.svg"
                 height={30}
