@@ -7,22 +7,22 @@ const Card = ({ id, title, items, imageSrc }) => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <div id={id} className={`relative h-auto w-full rounded-lg bg-gray-300 flex p-2 md:p-4 mb-10 ${isOpen ? 'h-auto' : 'h-[160px] md:h-[230px]'}`}>
-      <div className="h-full w-1/6 flex items-center justify-center">
+    <div id={id} className={`relative h-auto w-full rounded-lg bg-gray-300 flex p-2 md:p-4 mb-10 ${isOpen ? 'h-auto' : 'h-[160px] md:h-[230px]'} transition-all`}>
+      <div className="h-full w-1/6 flex items-center justify-center transition-all ">
         <Image
           src={imageSrc}
           width={300}
           height={300}
           alt="Bakalavr"
-          className='w-[70px]'
+          className='w-[70px] h-[70px] transition-all'
         />
       </div>
-      <div className={`w-5/6 ${isOpen ? 'h-auto' : 'max-h-[160px] md:max-h-[230px] overflow-y-hidden'} transition-all duration-500 ease-in-out`}>
-        <div className="md:ml-4 ml-2">
+      <div className={`w-5/6 ${isOpen ? 'h-auto' : 'max-h-[160px] md:max-h-[230px] overflow-y-hidden'} transition-all`}>
+        <div className="md:ml-4 ml-2 transition-all">
           <h2 className="text-2xl font-bold my-2 md:my-4">
             {title}
           </h2>
-          <ul style={{ paddingLeft: "20px" }} className={`list-disc ${isOpen ? 'h-auto md:mb-8' : 'max-h-[0px] md:max-h-[80px] overflow-y-hidden md:mb-0 mb-2'}`}>
+          <ul style={{ paddingLeft: "20px" }} className={`list-disc ${isOpen ? 'h-auto md:mb-8' : 'max-h-[0px] md:max-h-[80px] overflow-y-hidden md:mb-0 mb-2'} transition-all duration-500`}>
             {items.map((item, index) => (
               <li key={index} className="text-sm md:text-lg mb-4 whitespace-pre-line">
                 {item.replace(/<br\s*\/?>/gi, '\n')}

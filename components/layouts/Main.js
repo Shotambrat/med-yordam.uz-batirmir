@@ -3,12 +3,37 @@ import { useEffect, useState } from "react";
 import Modal from "@/components/templates/modals/Modal";
 import Card from "@/components/templates/Card";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Main = () => {
   // console.log(activeId)
 
   const [modalOpen, setModalOpen] = useState(false);
   const [service, setService] = useState(false);
+
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [complaints, setComplaints] = useState("");
+  const [isSuccessModalVisible, setIsSuccessModalVisible] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    setIsSuccessModalVisible(true);
+
+    const response = await fetch("/api/telegram", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, phone, complaints }),
+    });
+
+    if (response.ok) {
+        toast.success("Успешно отправлено!")
+        setIsSuccessModalVisible(false);
+    }
+  };
 
   const handleServices = () => setService(!service)
 
@@ -106,27 +131,9 @@ const Main = () => {
       ],
     },
   ];
-
-  // const handleScroll = () => {
-  //   const sections = document.querySelectorAll(".section");
-  //   let activeSection = "education"; // Default section
-
-  //   sections.forEach((section) => {
-  //     const rect = section.getBoundingClientRect();
-  //     console.log(section.id, "rect", rect);
-  //     if (rect.top <= 0 && rect.bottom >= 100) {
-  //       activeSection = section.id;
-  //     }
-  //   });
-
-  //   setActiveId(activeSection);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  // }, []);
   return (
     <main>
+            <Toaster />
       {modalOpen && <Modal closeModal={closeModal} />}
       <section className="relative h-screen-minus-60 md:h-screen-minus-60 p-2 w-full flex justify-center items-center bg-gradient-to-br from-aboutBgStart to-aboutBgEnd">
         <div className="absolute w-[300px] h-[300px] md:w-[800px] md:h-[800px] md:-top-16 md:-right-0 md:left-auto md:scale-x-[1] -left-8 top-[300px] scale-x-[-1] md:scal -z-5">
@@ -224,7 +231,7 @@ const Main = () => {
                   <li
                     key={item.id}
                     data-id={item.id} // New data attribute
-                    className={`h-10 px-2 w-full flex items-center rounded-md bg-white text-black cursor-pointer`}
+                    className={`h-10 px-2 w-full flex items-center rounded-md bg-white text-black cursor-pointer transition-all`}
                     onClick={() =>
                       document.getElementById(item.id).scrollIntoView({
                         behavior: "smooth",
@@ -238,7 +245,7 @@ const Main = () => {
               </ul>
             </div>
 
-            <div className="md:w-3/4 w-full md:ml-12 h-auto">
+            <div className="md:w-3/4 w-full md:ml-12 h-auto transition-all">
               {cardData.map((card, index) => (
                 <Card
                   id={card.id}
@@ -246,7 +253,7 @@ const Main = () => {
                   title={card.title}
                   items={card.items}
                   imageSrc={card.imageSrc}
-                  className="section"
+                  className="section transition-all"
                 />
               ))}
               <div
@@ -465,7 +472,7 @@ const Main = () => {
               className="md:w-[400px] md:h-[400px] w-[200px] h-[200px] "
             />
           </div>
-          <form className="flex flex-col items-center justify-between px-6 w-full md:w-[700px] z-10 my-8">
+          <form onSubmit={handleSubmit} className="flex flex-col items-center justify-between px-6 w-full md:w-[700px] z-10 my-8">
             <div className="mb-8">
               <h4 className="text-center text-white text-2xl md:text-3xl font-semibold mb-4">
                 Записаться на приём
@@ -475,26 +482,35 @@ const Main = () => {
               </h4>
             </div>
             <div className="flex flex-col w-full mb-10">
-              <input
-                placeholder="Ваше имя"
-                className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-300 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"
-              />
-              <input
-                placeholder="+998"
-                className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-300 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"
-              />
-              <textarea
-                placeholder="Жалобы"
-                className="placeholder-white md:h-24 md:text-xl text-white mb-4 border-2 border-slate-300 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"
-              />
+            <input
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Ваше имя"
+              className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-400 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"
+            />
+            <input
+              name="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="+998"
+              className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-400 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"
+            />
+            <textarea
+              name="complaints"
+              value={complaints}
+              onChange={(e) => setComplaints(e.target.value)}
+              placeholder="Жалобы"
+              className="placeholder-white md:h-24 md:text-xl text-white mb-4 border-2 border-slate-400 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"
+            />
             </div>
             <div className="w-full flex justify-center">
-              <button
-                type="submit"
-                className="bg-white w-full md:h-14 md:text-lg h-10 rounded-lg text-xs font-semibold text-buttonColor uppercase md:max-w-[400px] hover:bg-gradient-to-r hover:from-aboutBgEnd hover:to-aboutBgStart transition-all hover:text-white border-2 border-white"
-              >
-                Отправить
-              </button>
+            <button
+              type="submit"
+              className="bg-white w-full md:h-14 md:text-lg h-10 rounded-lg text-xs font-semibold text-buttonColor uppercase md:max-w-[400px] hover:bg-gradient-to-r hover:from-aboutBgEnd hover:to-aboutBgStart transition-all hover:text-white border-2 border-white"
+            >
+              {isSuccessModalVisible == false ? "Отправить" : "Отправка..."}
+            </button>
             </div>
           </form>
         </div>
