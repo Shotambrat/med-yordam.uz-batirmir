@@ -75,6 +75,7 @@ export default function Modal({ closeModal }) {
           </div>
           <div className="flex flex-col w-full mb-10">
             <input
+              required
               name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -82,6 +83,7 @@ export default function Modal({ closeModal }) {
               className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-400 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"
             />
             <input
+              required
               name="phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -89,6 +91,7 @@ export default function Modal({ closeModal }) {
               className="placeholder-white md:h-14 md:text-xl text-white mb-4 border-2 border-slate-400 rounded-md bg-inputBg py-1 pl-3 outline-none focus:border-white"
             />
             <textarea
+              required
               name="complaints"
               value={complaints}
               onChange={(e) => setComplaints(e.target.value)}
