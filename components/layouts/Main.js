@@ -163,7 +163,7 @@ const Main = ({isMenuOpen, toggleMenu}) => {
             </button>
           </div>
           <div className="md:flex-1 md:h-full md:min-h-full h-1/2 max-h-1/2 flex flex-col md:justify-between justify-around text-white md:ml-4">
-            <h1 className="w-full text-xl md:text-5xl md:text-left md:leading-[80px] text-center md:mt-0 mt-4 font-bold md:font-semibold">
+            <h1 className="w-full text-xl md:text-5xl md:text-left md:leading-[80px] text-center md:mt-0 mt-2 font-bold md:font-semibold">
               МИРЗАЕВ БАТЫР БАХРАМОВИЧ
             </h1>
             <div className="w-full flex flex-wrap md:flex-col md:items-start justify-between md:mb-0 mb-4">
