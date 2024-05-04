@@ -24,13 +24,13 @@ const ModalMenu = ({ isOpen, toggleMenu }) => {
       <div className="bg-white p-8 rounded-lg shadow-lg w-[250px] h-full relative">
           <Image
           onClick={toggleMenu}
-            src="/img/closeIcon.svg"
+            src="/img/closeIconBlue.svg"
             width={40}
             height={40}
             alt="Close Icon"
-            className="z-10 cursor-pointer absolute top-4 right-4"
+            className="z-10 cursor-pointer absolute top-8 right-8"
           />
-        <ul className="flex flex-col items-end justify-between mt-10 space-y-4 text-2xl font-semibold h-[350px]">
+        <ul className="flex flex-col items-end justify-between mt-16 space-y-4 text-2xl font-semibold h-[350px]">
           <li onClick={() => handleScrollToSection("education")}>
             Образование
           </li>
