@@ -8,7 +8,7 @@ const Card = ({ id, title, items, imageSrc }) => {
 
   return (
     <div id={id} className={`relative h-auto w-full rounded-lg bg-contactsBg flex p-2 md:p-4 mb-10 ${isOpen ? 'h-auto' : 'h-[160px] md:h-[230px]'} transition-all`}>
-      <div className="h-full w-1/6 flex items-center justify-center transition-all ">
+      <div className="h-full w-1/4 md:w-1/6 flex items-center justify-center transition-all ">
         <Image
           src={imageSrc}
           width={300}
