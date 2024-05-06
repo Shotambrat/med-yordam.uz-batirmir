@@ -14,7 +14,7 @@ module.exports = {
         aboutBgStart: "#81B1FE",
         aboutBgEnd: "#1052D1",
         showButton: "#97B6EC",
-        contactsBg: "#EFF2F7"
+        contactsBg: "#EFF2F7",
       },
       height: {
         'screen-minus-60': 'calc(100vh - 60px)', // Создает новый класс `h-screen-minus-60`
