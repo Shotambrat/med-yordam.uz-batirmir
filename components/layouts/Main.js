@@ -549,17 +549,6 @@ const Main = ({isMenuOpen, toggleMenu}) => {
               <div className="w-full flex flex-col">
                 <div className="flex flex-col w-full justify-between h-[70px]">
                   <div className="flex items-center">
-                    <p className="mx-2 text-6xl font-bold opacity-50">2</p>
-                    <h4 className="w-[170px] text-sm">
-                      <span className="font-semibold">Адрес: </span> Immunogen test ул. Я. Гулямова, 74 
-                    </h4>
-                  </div>
-                  <hr className="border-2 opacity-50"/>
-                </div>
-              </div>
-              <div className="w-full flex flex-col">
-                <div className="flex flex-col w-full justify-between h-[70px]">
-                  <div className="flex items-center">
                     <p className="mx-2 text-6xl font-bold opacity-50">3</p>
                     <h4 className="w-[170px] text-sm">
                       <span className="font-semibold">Адрес: </span>Vega Med пр-т Мирзо Улугбека, 5 
